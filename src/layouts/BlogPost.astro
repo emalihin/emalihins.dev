@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			main h1 {
+				color: #030712;
+			}
+			.dark main h1 {
+				color: #f9fafb;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main class="max-w-5xl mx-auto px-6 py-16">
+			<article>
+				{heroImage && (
+					<div class="mb-12">
+						<Image
+							width={1020}
+							height={510}
+							src={heroImage}
+							alt=""
+							class="rounded-xl w-full object-cover shadow-lg"
+						/>
+					</div>
+				)}
+
+				<header class="mb-12">
+					<div class="text-sm text-gray-500 dark:text-gray-500 mb-4">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<span class="italic ml-2">
+								(Updated <FormattedDate date={updatedDate} />)
+							</span>
+						)}
+					</div>
+					<h1 class="text-5xl font-bold mb-4">{title}</h1>
+					<p class="text-xl text-gray-600 dark:text-gray-400">{description}</p>
+					<hr class="mt-8 border-gray-200 dark:border-gray-700" />
+				</header>
+
+				<div class="prose prose-lg mx-auto">
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
