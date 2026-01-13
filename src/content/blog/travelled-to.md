@@ -1,7 +1,7 @@
 ---
 title: 'travelled.to - a travel map in an evening'
 description: 'Building a shareable travel map with Claude when no free alternative existed'
-pubDate: 2025-01-13
+pubDate: 2026-01-13
 heroImage: '../../assets/travelled-to.png'
 ---
 
