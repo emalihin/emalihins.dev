@@ -11,7 +11,7 @@ I wanted to share a map of my recent travels with friends. The kind with elegant
 
 There isn't. Or at least, nothing that felt right. The options were either paywalled, cluttered with ads, or required creating accounts for features I'd use once or twice per year.
 
-So I built one in an evening with Claude.
+I used Claude to speed things up. Describe a feature, get code, tweak it, repeat. Figuring out the Deck.gl arc layer setup and canvas export quirks were the fiddly parts. Two years ago I would spend close to a week on this.
 
 ## The Stack
 
@@ -28,10 +28,6 @@ The whole thing runs client-side. The stack I've already built with, see https:/
 Type a city name, the app geocodes it and drops a marker. Add more cities, and a line traces your journey. Switch between curved arcs or straight lines. Pick from different map styles. Adjust colors, opacity, marker sizes.
 
 When you're happy with the result, export it. The share button copies a caption and opens the selected app on mobile. Everything saves to localStorage, so your trip persists between sessions.
-
-## Building It
-
-I used Claude to speed things up. Describe a feature, get code, tweak it, repeat. Figuring out the Deck.gl arc layer setup and canvas export quirks were the fiddly parts. Two years ago I would spend close to a week on this.
 
 ## Try It
 
